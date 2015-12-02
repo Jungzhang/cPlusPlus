@@ -25,10 +25,8 @@ int main(int argc, char *argv[])
     }
     
     for (a = a; a != text.end(); ++a){
-        std::cout << *a;
+        std::cout << *a << std::endl;
     } 
-
-    std::cout << std::endl;
     
     return 0;
 }
