@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     auto it = v.begin();
 
-    for (decltype(v.size()) i = 0; i < v.size(); i++){
+    for (decltype(v.size()) i = 0; i != v.size(); i++){
         num[i] = *(it + i);
     }
 
