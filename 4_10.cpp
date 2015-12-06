@@ -9,7 +9,9 @@
 
 int main(int argc, char *argv[])
 {
-    int num = 0;
+    int num;
+
+    std::cin >> num;
 
     while(num != 42){
         std::cin >> num;
