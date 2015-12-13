@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     std::cin >> num1 >> num2;
     
     if (num2 == 0) {
-        throw std::runtime_error("divisor is 0");
+        throw std::runtime_error("除数为0");
     }
 
     std::cout << num1 / num2 << std::endl;
