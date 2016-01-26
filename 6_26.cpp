@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-    for (int a = 1; a < argc; ++a) {
+    for (size_t a = 1; a < argc; ++a) {
         std::cout << argv[a] << std::endl;
     }
     
