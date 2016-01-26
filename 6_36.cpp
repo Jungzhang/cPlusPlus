@@ -11,9 +11,11 @@
 std::string (&func())[10]
 {
     static std::string s[10];
+    char ch = 'A';
     
     for (auto &a : s) {
-        a = "aaa";
+        a = ch;
+        ch++;
     }
 
     return s;
