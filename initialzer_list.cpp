@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: test.cpp
+	> File Name: initializer_list.cpp
 	> Author: Jung
 	> Mail: jungzhang@xiyoulinux.org  or  zhanggen.jung@gmail.com
 	> Created Time: 2015年11月29日 星期日 14时36分05秒
