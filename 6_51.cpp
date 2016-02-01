@@ -2,7 +2,7 @@
 	> File Name: 6_51.cpp
 	> Author: Jung
 	> Mail: jungzhang@xiyoulinux.org  or  zhanggen.jung@gmail.com
-	> Created Time: 2016年02月01日 星期一 16时14分05秒
+	> Created Time: 2016年02月01日 星期一 16时14分06秒
 	> Description:
  ************************************************************************/
 #include <iostream>
