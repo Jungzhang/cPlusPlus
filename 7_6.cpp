@@ -41,22 +41,6 @@ Sales_data& Sales_data::combine(const Sales_data &rhs)
 
 int main(int argc, char *argv[])
 {
-    Sales_data total;
-    if (read(std::cin, total)) {
-        Sales_data trans;
-        while (read(std::cin, trans)) {
-            if (total.isbn() == trans.isbn()) {
-                total.combine(trans);
-            } else {
-                print(std::cout, total);
-                total = trans;
-            }
-        }
-        print(std::cout, total);
-    } else {
-        std::cout << "没有数据!\n" << std::endl;
-        return EXIT_FAILURE;
-    }
     
     return EXIT_SUCCESS;
 }
