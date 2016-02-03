@@ -12,7 +12,6 @@ struct Sales_data {
     std::string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
-
     std::string isbn() const {return bookNo;}
     Sales_data& combine(const Sales_data &rhs);
     Sales_data(std::istream &in);
