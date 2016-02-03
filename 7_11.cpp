@@ -16,19 +16,16 @@ struct Sales_data {
     std::string isbn() const {return bookNo;}
     Sales_data& combine(const Sales_data &rhs);
     Sales_data() = default;
-    Sales_data(const std::string &bookNo) {this->bookNo = bookNo;}
-    Sales_data(const std::string &bookNo, const unsigned &units_sold)
-    {
-        this->bookNo = bookNo;
-        this->units_sold = units_sold;
-    }
-    Sales_data(const std::string &bookNo, const unsigned &units_sold, const double revenue)
-    {
-        this->bookNo = bookNo;
-        this->units_sold = units_sold;
-        this->revenue = revenue;
-    }
+    Sales_data(const std::string &bookNo) : bookNo(bookNo) {}
+    Sales_data(const std::string &bookNo, const unsigned &units_sold) : bookNo(bookNo), units_sold(units_sold) {}
+    Sales_data(const std::string &bookNo, const unsigned &units_sold, const double revenue) : bookNo(bookNo), units_sold(units_sold), revenue(revenue) {}
+    Sales_data(std::istream &in);
 };
+
+Sales_data::Sales_data(std::istream &in)
+{
+    in >> bookNo >> units_sold >> revenue;
+}
 
 int main(int argc, char *argv[])
 {
@@ -36,6 +33,7 @@ int main(int argc, char *argv[])
     Sales_data a("111");
     Sales_data b("222", 12);
     Sales_data c("333", 12, 23);
+    Sales_data d(std::cin);
     
     return EXIT_SUCCESS;
 }
