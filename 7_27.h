@@ -25,4 +25,32 @@ private:
     std::string contents;
 };
 
+inline Screen &Screen::move(pos w, pos h)
+{
+    /*
+     *此处省略
+     *
+    * */
+
+    return *this;
+}
+
+inline Screen &Screen::set(pos w, pos h, std::string data)
+{
+    /*
+    *此处省略
+    * */
+
+    return *this;
+}
+
+inline Screen &Screen::set(std::string data)
+{
+    /*
+    *此处省略
+    * */
+    
+    return *this;
+}
+
 #endif
