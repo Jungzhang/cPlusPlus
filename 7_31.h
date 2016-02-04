@@ -11,8 +11,6 @@
 class Y;
 
 class X {
-    int a = 0;
-    double b = 0.0;
     Y *pNext;
 };
 
