@@ -11,7 +11,7 @@
 class Y;
 
 class X {
-    Y *pNext;
+    Y *pNext = nullptr;
 };
 
 class Y {
