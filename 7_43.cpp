@@ -7,6 +7,7 @@
  ************************************************************************/
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 class NoDefault {
 public:
@@ -22,6 +23,7 @@ public:
 int main(int argc, char *argv[])
 {
     C a;
+    std::vector<C> b(10);
     
     return EXIT_SUCCESS;
 }
