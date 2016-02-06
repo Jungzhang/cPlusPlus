@@ -29,7 +29,7 @@ void func(std::string fileName, std::vector<std::string> &s)
 int main(int argc, char *argv[])
 {
     std::vector<std::string> s;
-    func("text.txt", s);
+    func("text", s);
     for(auto a : s) {
         std::cout << a << std::endl;
     }
