@@ -54,6 +54,5 @@ int main(int argc, char *argv[])
     Sales_data b(std::cin);
     Sales_data c("11-22-33-44", 10, 20);
 
-
     return EXIT_SUCCESS;
 }
