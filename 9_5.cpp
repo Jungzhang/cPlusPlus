@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         std::cout << "未找到" << std::endl;
     }
 
-    if ((it = FindValue(b, 12345)) != b.end()) {
+    if ((it = FindValue(b, 532)) != b.end()) {
         std::cout << "找到" << *it << std::endl;
     } else {
         std::cout << "未找到" << std::endl;
