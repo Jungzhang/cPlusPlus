@@ -9,9 +9,9 @@
 #include <cstdlib>
 #include <vector>
 
-bool FindValue(std::vector<int> &a, int value)
+bool FindValue(const std::vector<int> &a, int value)
 {
-    std::vector<int>::iterator it = a.begin();
+    std::vector<int>::const_iterator it = a.begin();
     while (it != a.end()) {
         if (*it == value) {
             return true;

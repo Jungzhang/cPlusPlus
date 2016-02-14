@@ -9,9 +9,9 @@
 #include <cstdlib>
 #include <vector>
 
-std::vector<int>::iterator FindValue(std::vector<int> &a, int value)
+std::vector<int>::const_iterator FindValue(std::vector<int> &a, int value)
 {
-    std::vector<int>::iterator it = a.begin();
+    std::vector<int>::const_iterator it = a.begin();
     while (it != a.end()) {
         if (*it == value) {
             return it;
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     std::vector<int> a = {1,2,3,4,5,6,7,8,9,10};
     std::vector<int> b = {0,9,234,432,56,12,532};
     
-    std::vector<int>::iterator it;
+    std::vector<int>::const_iterator it;
 
     if ((it = FindValue(a, 8)) != a.end()) {
         std::cout << "找到" << *it << std::endl;
