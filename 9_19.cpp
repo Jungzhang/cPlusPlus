@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
         str.push_back(tmp);
     }
 
-    for (std::list<std::string>::const_iterator a = str.begin(); a != str.end(); ++a) {
+    for (std::list<std::string>::const_iterator a = str.cbegin(); a != str.cend(); ++a) {
         std::cout << *a << std::endl;
     }
     
