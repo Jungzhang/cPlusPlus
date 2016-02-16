@@ -7,18 +7,18 @@
  ************************************************************************/
 #include <iostream>
 #include <cstdlib>
-#include <deque>
+#include <list>
 
 int main(int argc, char *argv[])
 {
-    std::deque<std::string> str;
+    std::list<std::string> str;
     std::string tmp;
     
     while (std::cin >> tmp) {
         str.push_back(tmp);
     }
 
-    for (std::deque<std::string>::const_iterator a = str.begin(); a != str.end(); ++a) {
+    for (std::list<std::string>::const_iterator a = str.begin(); a != str.end(); ++a) {
         std::cout << *a << std::endl;
     }
     
