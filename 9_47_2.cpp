@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: 9_47_1.cpp
+	> File Name: 9_47_2.cpp
 	> Author: Jung
 	> Mail: jungzhang@xiyoulinux.org  or  zhanggen.jung@gmail.com
 	> Created Time: 2016年02月19日 星期五 17时42分31秒
@@ -16,15 +16,15 @@ int main(int argc, char *argv[])
     std::string alp("qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
     std::string::size_type pos = 0;
 
-    std::cout << "数字：";
-    while((pos = str.find_first_of(numbers, pos)) != std::string::npos) {
+    std::cout << "字母：";
+    while((pos = str.find_first_not_of(numbers, pos)) != std::string::npos) {
         std::cout << pos++ << " ";
     }
     std::cout << std::endl;
     
     pos = 0;
-    std::cout << "字母：";
-    while((pos = str.find_first_of(alp, pos)) != std::string::npos) {
+    std::cout << "数字：";
+    while((pos = str.find_first_not_of(alp, pos)) != std::string::npos) {
         std::cout << pos++ << " ";
     }
     std::cout << std::endl;
