@@ -13,19 +13,12 @@
 int main(int argc, char *argv[])
 {
     std::vector<char> s;
-    char ch, s1[100];
-    int i = 0;
+    char ch;
 
     while(std::cin >> ch) {
         s.push_back(ch);
     }
-
-    for (const auto &a : s) {
-        s1[i] = a; ++i;
-    }
-    s1[i] = '\0';
-
-    std::string str(s1, i);
+    std::string str(s.begin(), s.end());
 
     std::cout << str << std::endl;
     
