@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 {
     std::string OldName = "Jung";
     std::string pre = "Mr.";
-    std::string post = "。Zhang";
+    std::string post = "Zhang";
 
     std::cout << name(OldName, pre, post) << std::endl;
     
