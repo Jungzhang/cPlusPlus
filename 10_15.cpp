@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     int a = 10;
     auto b = [a](int c) {return a + c;};
     
-    std::cout << b(3) << std::endl;
+    std::cout << b(10) << std::endl;
 
     return EXIT_SUCCESS;
 }
