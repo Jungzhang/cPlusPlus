@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    for (auto it = vec.crbegin(); it != vec.crend(); ++it) {
+    for (std::vector<int>::const_reverse_iterator it = vec.crbegin(); it != vec.crend(); ++it) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
