@@ -1,0 +1,91 @@
+/*************************************************************************
+	> File Name: 12_19.h
+	> Author: Jung
+	> Mail: jungzhang@xiyoulinux.org  or  zhanggen.jung@gmail.com
+	> Created Time: 2016年03月03日 星期四 22时05分20秒
+	> Description:
+ ************************************************************************/
+#ifndef _12_19_H
+#define _12_19_H
+
+#include <vector>
+#include <string>
+#include <initializer_list>
+#include <memory>
+#include <exception>
+
+class StrBlobPtr;
+
+class StrBlob {
+    friend class StrBlobPtr;
+public :
+    typedef std::vector<std::string>::size_type size_type;
+    
+    //构造函数
+    StrBlob() : data(std::make_shared<std::vector<std::string>> ()){};
+    StrBlob(std::initializer_list<std::string> il) : data(std::make_shared<std::vector<std::string>> (il)) {};
+
+    //内容多少操作
+    size_type size() const { return data->size(); }
+    bool empty() const { return data->empty(); }
+
+    //增加和删除
+    void push_back(const std::string &s) { data->push_back(s); }
+    void pop_back() {check(0, "pop_back"); data->pop_back();}
+
+    //元素访问
+    std::string &front() {check(0, "front"); return data->front();}
+    std::string &back() {check(0, "back"); return data->back();}
+    const std::string &front() const {check(0, "const front"); return data->front();}
+    const std::string &back() const {check(0, "const back"); return data->back();}
+
+    //begin和end
+    StrBlobPtr begin();
+    StrBlobPtr end();
+
+private:
+    std::shared_ptr<std::vector<std::string>> data;
+    void check(size_type i, const std::string &msg) const
+    {
+        if (i >= data->size()) {
+            throw std::out_of_range(msg);
+        }
+    };
+};
+
+class StrBlobPtr {
+public:
+    StrBlobPtr() : curr(0) {}
+    StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
+    std::string &deref() const
+    {
+        auto p = check(curr, "dereference past end.");
+        
+        return (*p)[curr];
+    }
+    StrBlobPtr &incr()
+    {
+        check(curr, "increment past end of StrBlobPtr");
+        ++curr;
+        
+        return *this;
+    }
+private:
+    std::shared_ptr<std::vector<std::string>> check(std::size_t i, const std::string &msg) const 
+    {
+        std::shared_ptr<std::vector<std::string>> ret = wptr.lock();
+        if (!ret) {
+            throw std::runtime_error("unbound StrBlobPtr");
+        }
+        if (i >= ret->size()) {
+            throw std::out_of_range(msg);
+        }
+        return ret;
+    }
+    std::weak_ptr<std::vector<std::string>> wptr;
+    std::size_t curr;
+};
+StrBlobPtr StrBlob::begin() { return StrBlobPtr(*this); }
+StrBlobPtr StrBlob::end() { return StrBlobPtr(*this, data->size()); }
+
+#endif
