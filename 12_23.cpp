@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     strcat(result, "World");
 
     std::cout << "Array : " << result << std::endl;
+    delete [] result;
     
     return EXIT_SUCCESS;
 }
