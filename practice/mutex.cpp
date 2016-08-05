@@ -3,6 +3,7 @@
 #include <iostream>
 #include <thread>
 #include <zconf.h>
+#include "condition.h"
 
 //
 // Created by zhanggen on 16-8-5.
@@ -85,26 +86,26 @@ void work()
     }
 }
 
-int main(int argc, char * argv[])
-{
-
-//    std::thread t1(testMutex1);
-//    std::thread t2(testMutex1);
-//    std::thread t3(testMutex1);
-//    std::thread t4(testMutex1);
+//int main(int argc, char * argv[])
+//{
 //
-//    t1.join();
-//    t2.join();
-//    t3.join();
-//    t4.join();
-
-    std::thread thread(work);
-    std::thread thread1(work);
-    thread.join();
-    thread1.join();
-
-//    Complex complex(5);
-//    complex.both(10,20);
-
-    return EXIT_SUCCESS;
-}
+////    std::thread t1(testMutex1);
+////    std::thread t2(testMutex1);
+////    std::thread t3(testMutex1);
+////    std::thread t4(testMutex1);
+////
+////    t1.join();
+////    t2.join();
+////    t3.join();
+////    t4.join();
+//
+//    std::thread thread(work);
+//    std::thread thread1(work);
+//    thread.join();
+//    thread1.join();
+//
+////    Complex complex(5);
+////    complex.both(10,20);
+//
+//    return EXIT_SUCCESS;
+//}
