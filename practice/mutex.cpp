@@ -11,6 +11,7 @@
 
 std::mutex g_lock; //独占性互斥量
 //std::recursive_mutex mutex; //递归锁,允许一个线程多次获得同一把锁
+std::timed_mutex timed_mutex;  //带超时的独占性锁
 
 //普通使用
 void testMutex()
@@ -63,6 +64,27 @@ struct Complex {
     }
 };
 
+//带超时的独占性锁
+void work()
+{
+    std::chrono::milliseconds timeout(100);
+
+    while (true) {
+        if (timed_mutex.try_lock_for(timeout)) {
+            std::cout << "我抢到了锁，我的ID是:" << std::this_thread::get_id() << std::endl;
+            std::chrono::milliseconds sleepTime(250);
+            std::this_thread::sleep_for(sleepTime);
+            timed_mutex.unlock();
+        } else {
+            std::cout << "超时:" << std::this_thread::get_id() << std::endl;
+            std::chrono::milliseconds waitSleep(300);
+            std::this_thread::sleep_for(waitSleep);
+        }
+        std::chrono::milliseconds waitSleep(100);
+        std::this_thread::sleep_for(waitSleep);
+    }
+}
+
 int main(int argc, char * argv[])
 {
 
@@ -76,9 +98,13 @@ int main(int argc, char * argv[])
 //    t3.join();
 //    t4.join();
 
-    Complex complex(5);
-    complex.both(10,20);
+    std::thread thread(work);
+    std::thread thread1(work);
+    thread.join();
+    thread1.join();
 
+//    Complex complex(5);
+//    complex.both(10,20);
 
     return EXIT_SUCCESS;
 }
