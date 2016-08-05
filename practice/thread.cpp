@@ -7,7 +7,7 @@
 
 void func1()
 {
-
+    std::this_thread::sleep_for(std::chrono::seconds(3)); //线程休眠
 }
 
 //线程的基本用法
