@@ -41,5 +41,5 @@ std::shared_ptr<sql::Connection> ContionPool::getConnect(std::string database)
 //归还连接
 void ContionPool::returnConnect(std::shared_ptr<sql::Connection> con)
 {
-
+    listConnect.push_back(con);
 }
